@@ -18,18 +18,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Rotta per area admin
-Route::get('/admin', function () {
-    return view('admin');
-})->middleware(['auth', 'verified'])->name('admin');
+// // Rotta per area admin
+// Route::get('/admin', function () {
+//     return view('admin');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Middleware per controller Admin
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function () {
-        Route::get("/admin", [DashboardController::class, "admin"])
-            ->name("admin");
+        Route::get("/", [DashboardController::class, "admin"])
+            ->name("dashboard");
     });
 
 require __DIR__ . '/auth.php';
