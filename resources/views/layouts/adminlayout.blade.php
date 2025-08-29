@@ -7,7 +7,10 @@
     <title>Admin</title>
 </head>
 <body>
-    @include('adminheader')
-    @include('adminfooter')
+
+    @include("layouts.partials.adminheader")
+
+    @include("layouts.partials.adminfooter")
+
 </body>
 </html>
